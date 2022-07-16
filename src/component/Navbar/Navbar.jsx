@@ -2,6 +2,7 @@ import './Navbar.css'
 import 'https://kit.fontawesome.com/a076d05399.js'
 
 import React from 'react'
+import CartWidget from '../CartWidget/CartWidget'
 
 export default function Navbar() {
   return (
@@ -20,6 +21,7 @@ export default function Navbar() {
                 <a href="">About</a>
                 <a href="">Contact</a>
             </div>
+            <CartWidget />
         </nav>
     </header>
   )

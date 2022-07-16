@@ -6,12 +6,13 @@ body{
 }
 
 header{
-    background-color: #ffffff;
+    background-color: #21212c;
+    opacity: 1;
     width: 100%;
 }
 
 nav{
-    color: rgb(0, 0, 0);
+    color: #FFF;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,7 +33,7 @@ nav{
 }
 
 .links a{
-    color: rgb(0, 0, 0);
+    color: #FFF;
     text-decoration: none;
     padding: 1rem;
     transition: all 0.5s;
@@ -45,7 +46,6 @@ nav{
 .links a:hover{
     background-color: #316eb3;
     text-decoration: underline;
-    color: rgb(255, 255, 255);
 }
 
 #btnMenu{
@@ -71,7 +71,7 @@ nav{
         width: 100%;
         top: 51px;
         left: 100%;
-        z-index: 99999;
+        z-index: 9999;
         transition: all 0.5s;
         -webkit-transition: all 0.5s;
         -moz-transition: all 0.5s;
@@ -86,7 +86,6 @@ nav{
 
     .links a:hover{
         background-color: #316eb3;
-        
     }
 
     #btnMenu:checked ~ .links{
