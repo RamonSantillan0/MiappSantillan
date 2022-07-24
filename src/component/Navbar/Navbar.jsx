@@ -13,13 +13,13 @@ export default function Navbar() {
             </label>
             <input type="checkbox" id="btnMenu"/>
             <label for="btnMenu" class="toggleMenu">
-                <i class="fas fa-bars"></i>
+                <i className="fas fa-bars"></i>
             </label>
             <div className="links">
-                <a href="">Home</a>
-                <a href="">Products</a>
-                <a href="">About</a>
-                <a href="">Contact</a>
+                <a href="">Categoria 1</a>
+                <a href="">Categoria 2</a>
+                <a href="">Categoria 3</a>
+                <a href="">Categoria 4</a>
             </div>
             <CartWidget />
         </nav>
