@@ -1,15 +1,14 @@
 import './App.css'
-import Counter from './component/Counter/Counter'
 import ItemListContainer from './component/ItemListContainer/ItemListContainer'
 import Navbar from './component/Navbar/Navbar'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
 
   return (
-    <div className="App">
+    <div class="App">
       <Navbar />
       <ItemListContainer greeting="Hola coders" />
-      <Counter />
     </div>
   )
 }
