@@ -16,10 +16,10 @@ export default function Navbar() {
                 <i className="fas fa-bars"></i>
             </label>
             <div className="links">
-                <a href="">Categoria 1</a>
-                <a href="">Categoria 2</a>
-                <a href="">Categoria 3</a>
-                <a href="">Categoria 4</a>
+                <a href="">Computacion</a>
+                <a href="">Deportes y Fitness</a>
+                <a href="">Electrodomesticos</a>
+                <a href="">Juegos y Juguetes</a>
             </div>
             <CartWidget />
         </nav>
