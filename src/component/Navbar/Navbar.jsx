@@ -3,23 +3,24 @@ import 'https://kit.fontawesome.com/a076d05399.js'
 
 import React from 'react'
 import CartWidget from '../CartWidget/CartWidget'
+import { Link } from 'react-router-dom'
 
 export default function Navbar() {
   return (
     <header>
         <nav>
-            <label id="logo">
+            <Link to='/' id="logo">
                 Mi Tienda
-            </label>
+            </Link>
             <input type="checkbox" id="btnMenu"/>
             <label for="btnMenu" class="toggleMenu">
                 <i className="fas fa-bars"></i>
             </label>
             <div className="links">
-                <a href="">Computacion</a>
-                <a href="">Deportes y Fitness</a>
-                <a href="">Electrodomesticos</a>
-                <a href="">Juegos y Juguetes</a>
+                <Link to='/category/computacion'>Computacion</Link>
+                <Link to='/category/deportes'>Deportes y Fitness</Link>
+                <Link to='/category/electrodomesticos'>Electrodomesticos</Link>
+                <Link to='/category/juguetes'>Juegos y Juguetes</Link>
             </div>
             <CartWidget />
         </nav>
