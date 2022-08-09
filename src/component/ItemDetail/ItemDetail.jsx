@@ -1,11 +1,14 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Counter from '../Counter/Counter'
 
 const ItemDetail = ({ products }) => {
+  const [quantity, setQuantity] = useState(0)
 
   const [show, setShow] = useState(true)
   const handleOnAdd = (quantity) => {
     console.log('Cantidad de productos agregados', quantity)
+    setQuantity(quantity)
   }
 
   return (
@@ -19,7 +22,7 @@ const ItemDetail = ({ products }) => {
     <p class="card-text">{products.description}</p>
     <h5 class="card-title">$ {products.price}</h5>
     <p className='card-text'>stock:{products.stock}</p>
-    <Counter show={show} stock={products.stock} initial={1} onAdd={handleOnAdd}/>
+    {quantity > 0 ? <Link to='/cart' className="btn btn-primary">Ir al carrito</Link> : <Counter show={show} stock={products.stock} initial={1} onAdd={handleOnAdd}/>}
     </div>
       </div>
       <br />
