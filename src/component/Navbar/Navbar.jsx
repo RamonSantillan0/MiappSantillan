@@ -13,7 +13,7 @@ export default function Navbar() {
                 Mi Tienda
             </Link>
             <input type="checkbox" id="btnMenu"/>
-            <label for="btnMenu" class="toggleMenu">
+            <label htmlFor="btnMenu" className="toggleMenu">
                 <i className="fas fa-bars"></i>
             </label>
             <div className="links">

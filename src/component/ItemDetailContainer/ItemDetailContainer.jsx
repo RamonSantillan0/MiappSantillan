@@ -4,7 +4,7 @@ import { getItem } from "../../asyncMock"
 import ItemDetail  from "../ItemDetail/ItemDetail"
 
 
-export const ItemDetailContainer = (props) => {
+export const ItemDetailContainer = ({ addItem }) => {
 
     const [products, setProduct] = useState([])
     const [loading, setLoading] = useState(true)
@@ -24,7 +24,7 @@ export const ItemDetailContainer = (props) => {
         return (
             <>
             <h1>Detalle de productos</h1>
-                <ItemDetail products={products} />
+                <ItemDetail products={products} addItem={({ addItem })}  />
             </>
         )
 }
