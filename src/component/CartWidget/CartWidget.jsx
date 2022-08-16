@@ -7,6 +7,7 @@ const CartWidget = () => {
   const { getQuantity } = useContext(CartContext)
 
   const quantity = getQuantity()
+  
 
   return (
     <Link to='/cart'>
