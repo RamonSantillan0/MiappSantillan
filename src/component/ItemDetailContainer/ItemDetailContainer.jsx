@@ -8,7 +8,7 @@ import { db } from '../../services/firebase/index'
 
 export const ItemDetailContainer = ({ addItem }) => {
 
-    const [products, setProduct] = useState([])
+    const [product, setProduct] = useState()
     const [loading, setLoading] = useState(true)
     const { productId } = useParams()
 
@@ -40,7 +40,7 @@ export const ItemDetailContainer = ({ addItem }) => {
         return (
             <>
             <h1>Detalle de productos</h1>
-                <ItemDetail products={products} addItem={({ addItem })}  />
+                <ItemDetail {...product} addItem={({ addItem })}  />
             </>
         )
 }

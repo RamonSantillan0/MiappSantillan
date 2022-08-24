@@ -19,16 +19,16 @@ const ItemDetail = ({ products, id, name, img, category, description, price, sto
 
   return (
     <>
-    <div className='container' >
+    <div className='container mb-5' >
       <div className="card stilo">
-      <img src={products.img} class="card-img-top" alt="..."/>
+      <img src={img} class="card-img-top" alt="..."/>
       <div className="card-body">
-    <h3 className="card-title">{products.name}</h3>
-    <h6 className="card-title">{products.category}</h6>
-    <p className="card-text">{products.description}</p>
-    <h5 className="card-title">$ {products.price}</h5>
-    <p className='card-text'>stock:{products.stock}</p>
-    {quantity > 0 ? <Link to='/cart' className="btn btn-primary">Ir al carrito</Link> : <Counter show={show} stock={products.stock} initial={quantityAdded} onAdd={handleOnAdd}/>}
+    <h3 className="card-title">{name}</h3>
+    <h6 className="card-title">{category}</h6>
+    <p className="card-text">{description}</p>
+    <h5 className="card-title">$ {price}</h5>
+    <p className='card-text'>stock:{stock}</p>
+    {quantity > 0 ? <Link to='/cart' className="btn btn-primary">Ir al carrito</Link> : <Counter show={show} stock={stock} initial={quantityAdded} onAdd={handleOnAdd}/>}
     </div>
       </div>
       <br />

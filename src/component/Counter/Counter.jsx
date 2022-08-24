@@ -1,38 +1,28 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
-import CartWidget from '../CartWidget/CartWidget'
+import { useState } from 'react'
 
-const Counter = ({ show, stock, initial, onAdd }) => {
-    const [count, setCount] = useState(0)
+const Counter = ({stock = 0, initial = 1, onAdd})=> {
+   const [quantity, setQuantity] = useState(initial)
 
-    useEffect(() =>{
-      console.log('callback useEffect')
-      return() => console.log('el componente va a desmontarse')
+   const increment = () => {
+       if(quantity < stock) {
+           setQuantity(quantity+1)
+       }
+   }
 
-    }, [show])
+   const decrement = () => {
+       if(quantity > 1) {
+           setQuantity(quantity - 1)
+       }     
+   }
 
-    const decrement = () => {
-      if(count > initial) {
-        setCount(count - 1)
-      }
-        
-    }
-
-    const increment = () => {
-      if(count < stock){
-        setCount(count + 1)
-      }
-        
-    }
-console.log('va a renderizar')
-  return (
+   return(
     <div>
         <button onClick={decrement}>-</button>
-        <p>{count}</p>
+        <p>{quantity}</p>
         <button onClick={increment}>+</button>
         <br />
-        <button className="btn btn-primary" onClick={() => onAdd(count)}>Agregar al Carrito</button>
-        <CartWidget />
+        <button className="btn btn-primary" onClick={() => onAdd(quantity)}>Agregar al Carrito</button>
     </div>
   )
 }

@@ -20,6 +20,7 @@ const CartItem = ({ id, name, quantity, price }) => {
             </div>
         <button className='' onClick={() => handleRemove(id)}>Eliminar</button>
         </div>
+        <hr />
        </> 
     )
 }
