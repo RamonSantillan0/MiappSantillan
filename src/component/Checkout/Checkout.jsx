@@ -1,15 +1,20 @@
 import { useContext,useState } from "react"
 import { CartContext } from '../../context/CartContext'
-import {addDoc, collection, Timestamp,getDocs, documentId,query,where, writeBatch} from 'firebase/firestore'
+import CartItem from '../CartItem/CartItem'
+import { Link } from 'react-router-dom'
+import {addDoc, collection, Timestamp, getDocs, documentId, query, where, writeBatch} from 'firebase/firestore'
 import {db} from '../../services/firebase/index'
 
 const Checkout = () => {
-    const { cart, clearCart, getTotal} = useContext(CartContext)
+    const { cart, clearCart, getTotal, getQuantity } = useContext(CartContext)  
     const [name, setName] = useState("");
     const [phone, setPhone] = useState(0);
     const [mail, setMail] = useState("");
 
-    const generateOrder = async () => {
+    const totalQuantity = getQuantity()
+    const total = getTotal()
+
+     const gnrtOrder = async () => {
         try{
     const order = {
         buyer:{
@@ -22,13 +27,13 @@ const Checkout = () => {
         total: getTotal()
     }
 
-    const productsids = cart.map(prod => prod.id)
+    const infoIds = cart.map(prod => prod.id)
     const prodRef = collection(db,'products')
     
-    const productsAddFirestore = await getDocs(query(prodRef,where(documentId(),'in',productsids)))
+    const productsAddFirestore = await getDocs(query(prodRef,where(documentId(),'in',infoIds)))
     
     const {docs} = productsAddFirestore
-    const noStock = []
+    const nonStock = []
 
     const batch = writeBatch(db)
 
@@ -42,12 +47,12 @@ const Checkout = () => {
         if (dbStock >= prodQuantity){
         batch.update(doc.ref, {stock: dbStock - prodQuantity})
         }else{
-            noStock.push ({id: doc.id, ...docData})
+            nonStock.push ({id: doc.id, ...docData})
         }
 
     })
 
-    if(noStock.length === 0) {
+    if(nonStock.length === 0) {
         const refOrder = collection(db, 'orders')
         const orderAdded =  addDoc(refOrder, order)
         batch.commit()
@@ -62,7 +67,7 @@ const Checkout = () => {
     }finally {   
     console.log('La orden se creo correctamente')
     }
-}
+} 
 
     return(
         <div className="mb-3">
@@ -81,8 +86,14 @@ const Checkout = () => {
                 </label>
                 <br />
             </form>
-            <button className="btn btn-primary" onClick={generateOrder}>Comprar</button>
 
+            <div className="detalle">
+                <h2>Detalle de tu compra</h2>
+                { cart.map(p => <CartItem key={p.id} {...p}/>) }
+                <h3>Total: ${total}</h3>
+                <Link className="btn btn-primary"to='/cart'>Volver al carrito</Link>
+                <button className="btn btn-primary m-2" onClick={gnrtOrder}>Comprar</button>
+            </div>
         </div>
     )
 }

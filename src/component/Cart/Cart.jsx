@@ -21,8 +21,8 @@ const Cart = () => {
             <hr />
             { cart.map(p => <CartItem key={p.id} {...p}/>) }
             <h3>Total: ${total}</h3>
-            <button onClick={() => clearCart()} className="Button">Limpiar carrito</button>
-            <Link to='/checkout' className='Option'>Checkout</Link>
+            <button onClick={() => clearCart()} className='btn btn-primary m-2'>Limpiar carrito</button>
+            <Link to='/checkout' className='btn btn-primary m-2'>Checkout</Link>
         </div>
     )
 }
